@@ -10,7 +10,11 @@ genome variant-calling dataset for the absence or presence of a specific variant
 service is of interest as it can provide anonymized information from sensitive datasets.
 Beacon is also part and has been chosen as a driver project of the [*Global Alliance for Genomics and Health*][ga-4-gh].
 
-The project repository is available on the [github][elixir-github]. I use currently IntelliJ as IDE with Spring plugin. In IntelliJ project import is selected. The *pom* there are multiple *pom* files, hence the the option for recursive project file search should be activated. 
+The project repository is available on the [github][elixir-github]. I use currently IntelliJ as IDE with Spring plugin. In IntelliJ, first project import is selected. Beacon uses Maven as build system. It is split into a core module and an application specific implementation module. Further, also a test module. On the *Project Import* screen, the option for recursive project file search should be activated, then all three modules are found and imported.
+
+With the Spring Plug-in for installed, IntelliJ will automatically recognize the projects as such and setup the build and run configuration accordingly.
+
+
 
 
 
