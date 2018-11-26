@@ -18,6 +18,13 @@ With the Spring Plug-in for installed, IntelliJ will automatically recognize the
 
 The project repository is available on the [github][elixir-github]. I use currently IntelliJ as IDE with Spring plugin. In IntelliJ project import is selected. The *pom* there are multiple *pom* files, hence the the option for recursive project file search should be activated. 
 
+**Providing the Database**
+The main task to get the setup running is to provide the database. The easiest case is to use the dockerized PostgreSQL setup provided by within the [Beacon Elixir UI][beacon-elixir-ui] repository.  
+
+
+
+
+
 [elixir-beacon]: https://beacon-project.io/
 [ga-4-gh]: https://www.ga4gh.org/
 [elixir-github]: https://github.com/ga4gh-beacon/beacon-elixir
