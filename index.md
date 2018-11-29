@@ -4,4 +4,6 @@
 
 layout: home
 ---
+
+![dailyview](/assets/cloudy.jpg)
 This is the main page!
