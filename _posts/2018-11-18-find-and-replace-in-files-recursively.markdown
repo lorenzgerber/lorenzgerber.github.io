@@ -13,4 +13,4 @@ Here grep returns the filenames of files in the current directory and recursivel
 
 xargs reads input from stdin, which here is piped from grep, and iteratively applied to a  command to the right of xargs. In the current example, the filenames are applied to sed.
 
-Sed is run with the flag *-i* (in-place edit). While in most sed versions, the *-i* flag takes an optional parameter of a file extenstion to make file backups before in-place modificiation, this entry is mandatory on all to me known OSX versions (here currently 10.14.1 / Mojave). If no backups are desired, an empty string *''* has to be provided for the syntax to be correct.  
+Sed is run with the flag *-i* (in-place edit). While in most sed versions, the *-i* flag takes an optional parameter of a file extenstion to make file backups before in-place modificiation, this entry is mandatory on all to me known OSX versions (here currently 10.14.1 / Mojave). If no backups are desired, an empty string `''` has to be provided for the syntax to be correct.  

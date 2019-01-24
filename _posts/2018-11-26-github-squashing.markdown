@@ -5,7 +5,7 @@ date:   2018-11-11 09:34:28 +0800
 categories: github squash
 ---
 
-Github squashing is used to squash multiple commits into one. This can be useful when after committing errors are found and addiontal commits are needed. Especially when working for a Pull Request, it would be nice to 'beautify' the contribution into one single consistent commit.
+Github squashing is used to squash multiple commits into one. This can be useful when after committing errors are found and addiontal commits are needed. Especially when working for a Pull Request, it would be nice to 'beautify' the contribution into a single consistent commit.
 
 Squashing has to be done interactively using a text editor with the `rebase -i` command. As an example, squashing 2 commits up to HEAD would be initiated with:
 ```
