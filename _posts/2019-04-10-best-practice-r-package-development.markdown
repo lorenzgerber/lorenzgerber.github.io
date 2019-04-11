@@ -21,7 +21,6 @@ of RStudio (automated package builds etc) it is advisible to use the RStudio pro
 ## Starting a new package
 ### The `usethis` package 
 <https://usethis.r-lib.org/reference/use_vignette.html>  
-
 The use this package facilitates package development greatly. It is loaded in the development environment and then used from the command line. Below a number of relevant commands:
 - `use_r(name = NULL)` create a new R File in the package structure
 - `use_package(package, type = "Imports", min_version = NULL)` adds CRAN dependency to DESCRIPTION file
@@ -29,13 +28,25 @@ The use this package facilitates package development greatly. It is loaded in th
 
 ### The `testthat`package
 <https://testthat.r-lib.org/>  
-
 The use of this package can be automated through the the above mentioned `usethis` package:
 - `usethis::use_test("test_name")`
 
 ### The `roxygen2` package
 <https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html>  
-
 Roxygen (here always refers to the `roxygen2` package) is used for automatically buidling the
 documentation. Further, by using the `@export` tag in the function documentation header, 
 it allows to automate the generation of the NAMESPACE document.
+
+Below a simple example example of a roxygen2 function/meathod docstring
+header with a simplified function body:
+```
+#' heatplot
+#'
+#' creates the heatplot for cytographer
+#'
+#' @import data.table
+#' @export
+heatplot <- function(){
+    doheatplot()
+}
+```
