@@ -9,8 +9,7 @@ In this post a collection of links and tutorials related to good
 practice R package design is presented.
 
 ## Code Style
-A recent up-to-date and well maintained code style document can be found on 
-<https://style.tidyverse.org> from Hadley Wickham.
+A recent up-to-date and well maintained code style document can be found on <https://style.tidyverse.org> from Hadley Wickham.
 
 ## General setup
 *RStudio* is very well adapted for interactive data analysis but also for package development. For the
@@ -21,19 +20,22 @@ of RStudio (automated package builds etc) it is advisible to use the RStudio pro
 
 ## Starting a new package
 ### The `usethis` package 
-<https://usethis.r-lib.org/reference/use_vignette.html>
+<https://usethis.r-lib.org/reference/use_vignette.html>  
+
 The use this package facilitates package development greatly. It is loaded in the development environment and then used from the command line. Below a number of relevant commands:
 - `use_r(name = NULL)` create a new R File in the package structure
 - `use_package(package, type = "Imports", min_version = NULL)` adds CRAN dependency to DESCRIPTION file
 - `use_vignette(name, title = name)`
 
 ### The `testthat`package
-<https://testthat.r-lib.org/>
+<https://testthat.r-lib.org/>  
+
 The use of this package can be automated through the the above mentioned `usethis` package:
 - `usethis::use_test("test_name")`
 
 ### The `roxygen2` package
-<https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html>
+<https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html>  
+
 Roxygen (here always refers to the `roxygen2` package) is used for automatically buidling the
 documentation. Further, by using the `@export` tag in the function documentation header, 
 it allows to automate the generation of the NAMESPACE document.
