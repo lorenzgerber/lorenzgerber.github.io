@@ -22,6 +22,7 @@ of RStudio (automated package builds etc) it is advisible to use the RStudio pro
 ### The *usethis* package 
 <https://usethis.r-lib.org/reference/use_vignette.html>  
 The use this package facilitates package development greatly. It is loaded in the development environment and then used from the command line. Below a number of relevant commands:
+- `create_package(path, fields = NULL, rstudio = rstudioapi::isAvailable(), open = interactive())` creates automatically package including the whole package structure that is directly buildable
 - `use_r(name = NULL)` create a new R File in the package structure
 - `use_package(package, type = "Imports", min_version = NULL)` adds CRAN dependency to DESCRIPTION file
 - `use_vignette(name, title = name)`
