@@ -51,3 +51,12 @@ heatplot <- function(){
     doheatplot()
 }
 ```
+
+## Some details that tend to go wrong...
+### use package::function()
+To make the code more clear, it is nowadays suggested to use use the package::function() syntax. This
+renders the *library()* or *required()* calls superfluous and should therefore be removed.
+
+### make vigniette available
+To make the vignette available through the `vignette('packagename')` call, a source package needs to
+be built and installed `R CMD INSTALL packagename`.
