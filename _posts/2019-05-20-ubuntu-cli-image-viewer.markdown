@@ -6,7 +6,7 @@ categories: vim
 ---
 
 
-# An Ubuntu cli image viwer
-For some reason, I can never remember a command for an image viewer on Ubuntu. 
+# An Ubuntu cli image/photo viewer
+For some reason, I can never remember a command for an image/photo viewer on Ubuntu. 
 Well, here it is: <br>
 <span style="font-size:xx-large;">eog</span>
