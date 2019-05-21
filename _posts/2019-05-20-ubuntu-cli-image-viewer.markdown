@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Ubuntu cli image viewer"
+title:  "Ubuntu cli image/photo viewer"
 date:   2019-05-20 10:34:28 +0800
 categories: vim
 ---
