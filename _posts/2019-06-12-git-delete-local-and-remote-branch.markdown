@@ -7,8 +7,8 @@ categories: git console
 
 To delete a local git branch: 
    
-`git <branch_name> -d <feature_branch_name>`  
-`git <branch_name> -D <feature-branch_name>`  
+`git branch -d <branch_name>`  
+`git branch -D <branch_name>`  
 
 `-d` corresponds to `--delete`, which will only delete the local branch when all local commits/merges have been pushed to remote while `-D` expands to `--delete --force`.  
 
