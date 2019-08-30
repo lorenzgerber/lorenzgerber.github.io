@@ -10,7 +10,11 @@ I use ec2 instances in the geographical AWS region of my customer for latency te
 
 ## AWS CLI command
 ```
-aws ec2 describe-instances --filters "Name=key-name,Values=gerber_immunoscape" --query "Reservations[*].Instances[*].[InstanceId,PublicIpAddress,Tags[*]]"
+aws ec2 describe-instances \
+    --filters "Name=key-name,Values=gerber_immunoscape" \
+    --query "Reservations[*].Instances[*].[InstanceId, \
+                PublicIpAddress, \
+                Tags[*]]"
 ```
 
 
