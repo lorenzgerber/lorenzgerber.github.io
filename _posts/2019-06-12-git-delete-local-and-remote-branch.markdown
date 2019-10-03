@@ -14,3 +14,9 @@ To delete a local git branch:
 
 To delete a remote git branch:  
 `git push <remote_name> --delete <branch_name>`
+
+
+This will then often require on other machines to update the local list of branches
+`git remote update <remote_name> --prune`
+
+...in most cases, &gt;remote_name&gt; is `origin`.
