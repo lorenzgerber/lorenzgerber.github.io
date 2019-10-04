@@ -25,4 +25,10 @@ git clone ssh://git@localhost:3333/example.git
 
  On cloning, the port is stored in the repository configuration, hence in the future, the tunnel needs to be opened again. 
 
+## Another common usecase...
+...is when the localhost of a remote machine should be reached. Actual example here was when trying out to setup shinyproxy on a remote linux server. Here also an ssh tunnel can be opened. Then the localhost of A.B.C.D can be reached in the local browser through `http:localhost:3000` 
+
+```
+ssh -L3333:localhost:8080 my_user@A.B.C.D
+```
 
