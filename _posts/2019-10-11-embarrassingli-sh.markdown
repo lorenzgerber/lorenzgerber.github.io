@@ -6,7 +6,7 @@ categories: shell bash cli
 ---
 
 ## Background
-There are almost daily some task that I know that they are easily scriptable. On a good day, I google them, on a bad day, I embarrassingly fix it manually. This entry is the trial to improve by at least writing down those that I need the most often in the hope that I will remember them...
+There are almost daily some tasks from which I know that they are easily scriptable. On a good day, I google them, on a bad day, I embarrassingly fix it manually. This entry is the trial to improve by at least writing down those that I need the most often in the hope that I will remember them...
 
 ## Run git commands on a bunch of sub-directories
 ```
