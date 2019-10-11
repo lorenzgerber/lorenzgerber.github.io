@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Embarrassingli-sh..."
-date:   2019-10-11 09:40:00 +0200
+date:   2019-10-10 09:40:00 +0200
 categories: shell bash cli
 ---
 
