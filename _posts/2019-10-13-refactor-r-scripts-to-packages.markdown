@@ -41,6 +41,7 @@ Initial work is done as refactoring the current script into a better state for l
   * setting ENV variables
   * loading/installing packages
 * fix variable names according style convetion
+* prefix all used functions with the package name, except for base
 * separate code into functions with clear descriptive function names
   * add roxygen headers for each function
 * make/keep a main function that shows clearly the high-level steps of the data analysis pipeline
