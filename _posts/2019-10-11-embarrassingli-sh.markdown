@@ -10,8 +10,8 @@ There are almost daily some tasks from which I know that they are easily scripta
 
 ## Run git commands on a bunch of sub-directories
 ```
-find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} status \;
-find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} fetch \;
+find . -type d -depth 1 -print -exec git --git-dir={}/.git --work-tree=$PWD/{} status \;
+find . -type d -depth 1 -print -exec git --git-dir={}/.git --work-tree=$PWD/{} fetch \;
 find . -type d -depth 1 -ok git --git-dir={}/.git --work-tree=$PWD/{} pull origin master \;
 ```
 
