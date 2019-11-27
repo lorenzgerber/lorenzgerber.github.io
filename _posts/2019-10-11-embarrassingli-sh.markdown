@@ -21,6 +21,11 @@ Here for example, change .txt files to .fcs files
 for f in *.txt; do mv -- "$f" "${f%.fcs}.txt"; done
 ```
 
+## Change file pattern of multiple files in a directory
+```
+ls * | sed -e 'p;s/foo/bar/' | xargs -n2 mv
+```
+
 
 
 
