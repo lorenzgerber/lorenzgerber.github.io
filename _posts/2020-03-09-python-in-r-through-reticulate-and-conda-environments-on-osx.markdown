@@ -38,10 +38,11 @@ Everytime when using a package that depends on reticulate, here 'highdim'
 * `conda info` - general installation infos
 * `conda activate envname` - activate conda environment 'envname'
 * `conda deactivate` - deactivate current conda environment
-* `conda list env` - list conda environments
+* `conda env list` - list conda environments
 * `conda list` - list available packages within a conda env
 * `conda search "^python$"` - list available python versions
 * `conda create -n newenvname python=3.8` - create new conda environment 'newenvname' with python 3.8  installed
+* `conda env remove --name newenvname`- remove conda environment 'newnenvname' ant all it's installed packages
 * `conda remove -n newenvname --all` - remove conda environment 'newenvname' and all it's installed packages
 
 
