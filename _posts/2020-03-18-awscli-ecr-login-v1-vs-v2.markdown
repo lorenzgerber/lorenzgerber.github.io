@@ -6,7 +6,7 @@ categories: AWS Docker ECR
 ---
 
 ## Background
-Login in to Amazon AWS ECR from the command line tool awscli has changed from v1 to v2. While loging in became more verbose in v2, it's also more general useable for multiple automation/scripting scenarios. 
+Login in to Amazon AWS ECR from the command line tool awscli has changed from v1 to v2. While loging in became more verbose in v2, it's also more general useable for various automation/scripting scenarios. 
 
 ## Version 1
 Below version works provided that the region and credentials are configured in .aws
