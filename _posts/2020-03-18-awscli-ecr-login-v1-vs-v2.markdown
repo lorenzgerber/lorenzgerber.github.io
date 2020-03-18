@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Loging in to AWS ECR has changed from awscli v1 to v2"
-date:   2020-03-09 07:00:00 +0200
+date:   2020-03-18 07:00:00 +0200
 categories: AWS Docker ECR
 ---
 
