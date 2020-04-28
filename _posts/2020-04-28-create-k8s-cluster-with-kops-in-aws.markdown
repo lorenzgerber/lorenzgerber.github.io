@@ -49,3 +49,7 @@ kubectl get nodes
 ## To shutdown and delete the cluster
 `kops delete cluster kube.cynodix.se --yes`
 
+
+#### References
+[Installing Kubernetes with kops](https://kubernetes.io/docs/setup/production-environment/tools/kops/ "Kubernetes Homepage")
+
