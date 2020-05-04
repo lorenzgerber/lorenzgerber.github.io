@@ -54,6 +54,6 @@ The whole kubernetes configuration is stored in the `~/.kube/config` file. Copyi
 
 
 #### References
-[Installing Kubernetes with kops](https://kubernetes.io/docs/setup/production-environment/tools/kops/)
+[Installing Kubernetes with kops](https://kubernetes.io/docs/setup/production-environment/tools/kops/)  
 [kops - getting started on AWS](https://kops.sigs.k8s.io/getting_started/aws/)
 
