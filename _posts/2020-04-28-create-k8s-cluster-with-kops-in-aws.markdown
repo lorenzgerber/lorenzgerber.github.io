@@ -49,6 +49,9 @@ kubectl get nodes
 ## To shutdown and delete the cluster
 `kops delete cluster kube.cynodix.se --yes`
 
+## Accessing the cluster from another machine
+The whole kubernetes configuration is stored in the `~/.kube/config` file. Copying this file is enough to access the cluster with `kubectl`. To work with kops, the AWS kops profile for awscli need to be setup too. After a system restart, env variables need to be exported again eg. `AWS_PROFILE`, `KOPS_STATE_STORE`. 
+
 
 #### References
 [Installing Kubernetes with kops](https://kubernetes.io/docs/setup/production-environment/tools/kops/)
