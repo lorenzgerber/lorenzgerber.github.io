@@ -24,12 +24,13 @@ export KOPS_STATE_STORE="s3://kube-cynodix-se-state-store"
 export NODE_SIZE=${NODE_SIZE:-t3.medium}
 export MASTER_SIZE=${MASTER_SIZE:-t3.medium}
 export ZONES=${ZONES:-"eu-north-1a"}
+export NAME=kube.cynodix.se
 ```
 
 ## Create the Kubernetes Cluster Configuration
 The below command uses the ENV variables that have been set above.
 ```
-kops create cluster kube.cynodix.se \
+kops create cluster $NAME \
 --node-count 3 \
 --zones $ZONES \
 --node-size $NODE_SIZE \
@@ -50,7 +51,7 @@ kubectl get nodes
 `kops delete cluster kube.cynodix.se --yes`
 
 ## Accessing the cluster from another machine
-The whole kubernetes configuration is stored in the `~/.kube/config` file. Copying this file is enough to access the cluster with `kubectl`. To work with kops, the AWS kops profile for awscli need to be setup too. After a system restart, env variables need to be exported again eg. `AWS_PROFILE`, `KOPS_STATE_STORE`. 
+The whole kubernetes configuration is stored in the `~/.kube/config` file. Copying this file is enough to access the cluster with `kubectl`. To work with kops, the AWS kops profile for awscli need to be setup too. After a system restart, env variables need to be exported again eg. `AWS_PROFILE`, `NAME`,`KOPS_STATE_STORE`. 
 
 
 #### References
