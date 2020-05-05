@@ -31,11 +31,11 @@ export NAME=kube.cynodix.se
 The below command uses the ENV variables that have been set above.
 ```
 kops create cluster $NAME \
---node-count 3 \
+--cloud aws
+--node-count 1 \
 --zones $ZONES \
 --node-size $NODE_SIZE \
 --master-size $MASTER_SIZE \
---bastion
 ```
 
 ## Use Cluster Configuration to launch Kubernetes Cluster into AWS
