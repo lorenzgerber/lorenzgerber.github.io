@@ -55,9 +55,9 @@ kubectl get nodes
 The whole kubernetes configuration is stored in the `~/.kube/config` file. Copying this file is enough to access the cluster with `kubectl`. To work with kops, the AWS kops profile for awscli need to be setup too. After a system restart, env variables need to be exported again eg. `AWS_PROFILE`, `NAME`,`KOPS_STATE_STORE`. 
 
 ## Accessing Kubernetes Web UI Dashboard
-Deployment of the Kubernetes Web UI:  
+Deployment of the Kubernetes Web UI:
 `kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml`  
-It can them be accessed through `kubectl proxy` on ` http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/`
+It can them be accessed through `kubectl proxy` on `http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/`
 However, to access a admin user needs to be created, `dashboard-adminuser.yml`:  
 ```
 apiVersion: v1
