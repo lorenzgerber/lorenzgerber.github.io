@@ -21,8 +21,8 @@ In my case awscli is configured with multiple profiles. Hence the profile to be 
 Then a number of configuration values are made accessible as ENV variables.
 ```
 export KOPS_STATE_STORE="s3://kube-cynodix-se-state-store"
-export NODE_SIZE=${NODE_SIZE:-t3.medium}
-export MASTER_SIZE=${MASTER_SIZE:-t3.medium}
+export NODE_SIZE=${NODE_SIZE:-t3.micro}
+export MASTER_SIZE=${MASTER_SIZE:-t3.micro}
 export ZONES=${ZONES:-"eu-north-1a"}
 export NAME=kube.cynodix.se
 ```
@@ -31,10 +31,11 @@ export NAME=kube.cynodix.se
 The below command uses the ENV variables that have been set above.
 ```
 kops create cluster $NAME \
---node-count 3 \
+--cloud aws \
+--node-count 1 \
 --zones $ZONES \
 --node-size $NODE_SIZE \
---master-size $MASTER_SIZE \
+--master-size $MASTER_SIZE
 ```
 
 ## Use Cluster Configuration to launch Kubernetes Cluster into AWS
