@@ -58,7 +58,7 @@ The whole kubernetes configuration is stored in the `~/.kube/config` file. Copyi
 Deployment of the Kubernetes Web UI:
 `kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml`  
 It can them be accessed through `kubectl proxy` on `http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/`
-However, to access a admin user needs to be created, `dashboard-adminuser.yml`:  
+To access, an admin user needs to be created, `dashboard-adminuser.yml`:  
 ```
 apiVersion: v1
 kind: ServiceAccount
