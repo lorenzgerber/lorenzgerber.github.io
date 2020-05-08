@@ -53,6 +53,40 @@ kubectl get nodes
 ## Accessing the cluster from another machine
 The whole kubernetes configuration is stored in the `~/.kube/config` file. Copying this file is enough to access the cluster with `kubectl`. To work with kops, the AWS kops profile for awscli need to be setup too. After a system restart, env variables need to be exported again eg. `AWS_PROFILE`, `NAME`,`KOPS_STATE_STORE`. 
 
+## Accessing Kubernetes Web UI Dashboard
+Deployment of the Kubernetes Web UI:  
+`kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml`  
+It can them be accessed through `kubectl proxy` on ` http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/`
+However, to access a admin user needs to be created, `dashboard-adminuser.yml`:  
+```
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: admin-user
+  namespace: kube-system
+```
+`kubectl apply -f dashboard-adminuser.yml`  
+
+Then a cluster role binding needs to be created, `admin-role-binding.yml`:
+```
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: admin-user
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: admin-user
+  namespace: kube-system
+```
+`kubectl apply -f admin-role-binding.yml`
+
+Finally, the access token can be obtained: `kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')`
+
+
 
 #### References
 [Installing Kubernetes with kops](https://kubernetes.io/docs/setup/production-environment/tools/kops/)  
