@@ -16,7 +16,7 @@ My domain name is registred with a local company but administrated on AWS Route5
 ## Setting ENV variables
 In my case awscli is configured with multiple profiles. Hence the profile to be used by default can be set as ENV variable:
 
-`export AWS_PROFILE=profile_name`
+`export AWS_PROFILE=cynodix`
 
 Then a number of configuration values are made accessible as ENV variables.
 ```
