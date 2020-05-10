@@ -30,7 +30,7 @@ export KOPS_CLUSTER_NAME=kube.cynodix.se
 ## Create the Kubernetes Cluster Configuration
 The below command uses the ENV variables that have been set above.
 ```
-kops create cluster $KOPS_CLUSTER_NAME \
+kops create cluster --name $KOPS_CLUSTER_NAME \
 --cloud aws \
 --node-count 1 \
 --zones $ZONES \
