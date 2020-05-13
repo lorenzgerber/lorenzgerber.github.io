@@ -8,8 +8,11 @@ categories: EKS Shinyproxy K8s Kubernetes AWS
 ## Background
 [Shinyproxy](https://shinyproxy.io) is a backend to serve R Shiny applications dockerized in a scalable way. This blog post is a loose instruction/cheatsheet on how to setup a K8S cluster using EKS on AWS, then configure and run Shinyproxy on it.
 
+### Cost considerations
+It's not cheap  
+
 ## Install tools
-`export AWS_PROFILE=cynodix`
+`export AWS_PROFILE=cynodix`  
 eksctrl  
 aws-iam-authenticator  
 kubernetes-cli  
@@ -18,18 +21,18 @@ kubernetes-cli
 eksctl  
 
 ## Prepare Shinyproxy
-obtain ACM
+obtain ACM  
 configure  
 build images  
 upload images  
 
 ## Launch Shinyproxy on K8s
-kubectl create deployment
-kubectl create authentication
-kubectl create service
+kubectl create deployment  
+kubectl create authentication  
+kubectl create service  
 
 ## Configure DNS in Route53
-make alias in Route53 hosted zone
+make alias in Route53 hosted zone  
 
 ## Test
 
