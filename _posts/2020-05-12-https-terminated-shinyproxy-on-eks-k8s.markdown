@@ -20,7 +20,7 @@ Both `aws-iam-authenticator` and `kubernetes-cli` can be installed using Homebre
 
 ## Create EKS Cluster
 
-## Create and Launch EKS Cluster
+### Create and Launch EKS Cluster
 For successful installation, enough EIP need to be available for the account in use in the current region. And don't forget to choose the correct AWS Profile for `awscli`:    
 `export AWS_PROFILE=cynodix`  
 
