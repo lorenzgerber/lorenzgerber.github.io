@@ -17,7 +17,7 @@ Preparation is two fold. First a set of configuration objects need to be generat
 
 ### Create CodeBuild Policy
 `aws iam create-policy --policy-name codebuild-generic-devops-policy --path /service-role/ --policy-document file://code_build_policy_statement.json`  
-The `code_build_policy_statemtn.json` for generic access needed by code-build:
+The `code_build_policy_statement.json` for generic access needed by code-build:
 ```
 {
     "Version": "2012-10-17",
@@ -186,14 +186,14 @@ Fields to adjust in template:
 * source/location (codecommit git repo url)
 * sourceVersion (refs/heads/master or develop)
 * artifacts/path (packagenname-package/)
-* artifacts/name (packagename-prod/dev.zip)
+* artifacts/name (packagename-prod/dev.zip)  
 `aws codebuild create-build --cli-input-json code_build_project_package_template.json`
 ### Add CodeBuild Docker
 Fields to adjust in template:
 * name (packagename-docker-prod/dev)
 * source/secondarySourceVersions/sourceVersion (refs/heads/master or develop)
 * environment/environmentVariables/value (IMAGE_REPO_NAME: packagename)
-* environment/environmentVariables/value (IMAGE_TAG: latest/develop)
+* environment/environmentVariables/value (IMAGE_TAG: latest/develop)  
 `aws codebuild create-build --cli-input-json code_build_project_docker_template.json`
 ### Add CodePipeline Package
 Fields to adjust in template:
@@ -201,36 +201,36 @@ Fields to adjust in template:
 * pipeline/stages(name:source)/actions/configuration/BranchName (master/develop)
 * pipeline/stages(name:source)/actions/configuration/RepositoryName (immunoscape-packagename-package)
 * pipeline/stages(name:build)/actions/configuration/ProjectName (packagename-package-prod/dev)
-* pipeline/stages(name:store)/actions/configuration/ObjectKey (packagename-package/packagename-prod/dev.zip)
+* pipeline/stages(name:store)/actions/configuration/ObjectKey (packagename-package/packagename-prod/dev.zip)  
 `aws codepipeline create-pipeline --cli-input-json code_pipeline_package_template.json`
 ### Add CodePipeline Docker
 Fields to adjust in template:
 * pipeline/name (packagename-docker-prod/dev)
 * pipeline/stages/name:source)/actions/configuration/S3ObjectKey (packagename-package/packagename-prod/dev.zip)
-* pipeline/stages(name:build)/actions/configuration/ProjectName (packagename-docker-prod/dev)
+* pipeline/stages(name:build)/actions/configuration/ProjectName (packagename-docker-prod/dev)  
 `aws codepipeline create-pipeline --cli-input-json code_pipeline_docker_template.json`
 ### Put Events Rule Package (git)
 Fields to adjust in template:
 * resources (codecommit git repo arn)
-* branch/referencename (master/develop)
+* branch/referencename (master/develop)  
 `aws events put-rule --name devops-processing-prod-git-rule --cli-input-json file://events_rule_pipeline_git_template.json`
 ### Put Events Target Package (git)
 Fields to asjust in cli call
 * --rule devops-packagename-prod/dev-git-rule
 * --targets Id=packagename-package-prod/dev
-* --targets Arn=arn_of_pipeline
+* --targets Arn=arn_of_pipeline  
 `aws events put-targets --rule devops-processing-prod-git-rule --targets Id=processing-package-prod,Arn=arn:aws:codepipeline:ap-southeast-1:781462664882:processing-package-prod,RoleArn=arn:aws:iam::781462664882:role/service-role/events-generic-devops-role`
 ### Put Events Rule Docker (S3)
 Fields to adjust in template:
-* key (packagename-package/packagename-prod/dev.zip)
+* key (packagename-package/packagename-prod/dev.zip)  
 `aws events put-rule --name devops-processing-prod-s3-rule --cli-input-json file://events_rule_pipeline_s3_template.json`
 ### Put Events Target Docker (S3)
 Fields to adjust in cli call
 * --rule (devops-packagename-prod/dev-s3-rule)
 * --targets Id=packagename-docker-prod/dev
-* --targets Arn=arn_of_pipeline
+* --targets Arn=arn_of_pipeline  
 `aws events put-targets --rule devops-processing-prod-s3-rule --targets Id=processing-docker-prod,Arn=arn:aws:codepipeline:ap-southeast-1:781462664882:processing-docker-prod,RoleArn=arn:aws:iam::781462664882:role/service-role/events-generic-devops-role`
 ### CloudTrail put event selectors Docker (needed for S3 as trigger)
 Fileds to adjust in template:
-* Values (add arn for S3 object on which events shall be logged)
+* Values (add arn for S3 object on which events shall be logged)  
 `aws cloudtrail put-event-selectors --cli-input-json file://cloud_trail_code_pipeline_event_selectors.json`
