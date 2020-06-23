@@ -52,4 +52,19 @@ git push origin +master
 ```
 The difference between --force and + is described nicely in a [Stack Overflow post][stack-overflow-post] which was also the reference for this blog entry.
 
+
+
+In case using --force  is no option, another solution is to `merge --squash` all changes into a new branch that has been created from the most recent commit of where the feature/bugfix shall be merged to finally (master/develop):
+
+```
+git checkout -b new_branch
+git merge --squash old_branch
+git commit
+```
+After this, a pull request can be done on `new_branch`.
+
+Merge Squash as described in [Stack Overflow][stack-overflow-post-merge-squash]
+
+
+[stack-overflow-post-merge-squash]: https://stackoverflow.com/questions/5308816/how-to-use-git-merge-squash
 [stack-overflow-post]: https://stackoverflow.com/questions/5667884/how-to-squash-commits-in-git-after-they-have-been-pushed
