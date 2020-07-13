@@ -11,7 +11,8 @@ When working extensively on awscli, often the situation arises that one needs to
 ## example
 ```
 aws batch describe-job-definitions | jq '.[] | .[] |  \\
-select( (.status == "ACTIVE") and (.containerProperties | .environment | .[] | .value == "HEATMAP") \\
+select( (.status == "ACTIVE") \\
+and (.containerProperties | .environment | .[] | .value == "HEATMAP") \\
 and (.jobDefinitionName | contains("dev")))'
 ```
 The additional parameters are provided in single quotes. Most awscli json return objects come with two enclosing arrays, hence `.[] | .[]` extracts the json records for further filtering.  
