@@ -10,6 +10,7 @@ I just can't remeber those darn vim shortcuts...
 
 ## there you go...
 * `gg` - jump to start of file
+* `Shift G` - jump to end of file 
 * `$` - jump to end of line
 * `0` - jump to start of line
 * `:edit` or `:e` plus file name - open file for editing
