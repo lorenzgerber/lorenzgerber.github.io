@@ -2,11 +2,11 @@
 layout: post
 title:  "vim-sical shortcuts"
 date:   2020-07-13 09:40:00 +0200
-categories: shell bash cli jq
+categories: vim
 ---
 
 ## Background
-I just can't remeber those darn vim shortcuts...
+I just can't remember those darn vim shortcuts...
 
 ## there you go...
 * `gg` - jump to start of file
