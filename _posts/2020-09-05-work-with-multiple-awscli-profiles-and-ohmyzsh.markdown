@@ -25,6 +25,12 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 ```
 
-The actual addition compared to the orginal is only the third line. 
+The actual addition compared to the orginal is only the third line.
+
+In practice, the AWS cli profile names are stored in the .aws/config file. 
+Activation of a profile is then done by exporting the ENV variale `AWS_PROFILE`, eg.:
+```
+export AWS_PROFILE=my_profile_name
+```
 
 

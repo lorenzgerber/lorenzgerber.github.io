@@ -12,6 +12,7 @@ There are almost daily some tasks from which I know that they are easily scripta
 ```
 find . -type d -depth 1 -print -exec git --git-dir={}/.git --work-tree=$PWD/{} status \;
 find . -type d -depth 1 -print -exec git --git-dir={}/.git --work-tree=$PWD/{} fetch \;
+find . -type d -depth 1 -print -exec git --git-dir={}/.git --work-tree=$PWD/{} --no-pager diff master \;
 find . -type d -depth 1 -ok git --git-dir={}/.git --work-tree=$PWD/{} pull origin master \;
 ```
 
