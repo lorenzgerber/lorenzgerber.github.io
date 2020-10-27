@@ -32,3 +32,4 @@ git clone ssh://git@localhost:3333/example.git
 ssh -L3333:localhost:8080 my_user@A.B.C.D
 ```
 
+This post is loosely based on a [post](https://randyfay.com/content/git-over-ssh-tunnel-through-firewall-or-vpn) from Randy Fay.
