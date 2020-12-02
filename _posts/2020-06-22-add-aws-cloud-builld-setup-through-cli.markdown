@@ -187,7 +187,7 @@ Fields to adjust in template:
 * sourceVersion (refs/heads/master or develop)
 * artifacts/path (packagenname-package/)
 * artifacts/name (packagename-prod/dev.zip)  
-`aws codebuild create-build --cli-input-json code_build_project_package_template.json`  
+`aws codebuild create-project --cli-input-json file://code_build_project_package_template.json`  
 
 
 ### Add CodeBuild Docker
@@ -196,7 +196,7 @@ Fields to adjust in template:
 * source/secondarySourceVersions/sourceVersion (refs/heads/master or develop)
 * environment/environmentVariables/value (IMAGE_REPO_NAME: packagename)
 * environment/environmentVariables/value (IMAGE_TAG: latest/develop)  
-`aws codebuild create-build --cli-input-json code_build_project_docker_template.json`  
+`aws codebuild create-project --cli-input-json file://code_build_project_docker_template.json`  
 
 
 ### Add CodePipeline Package
@@ -206,7 +206,7 @@ Fields to adjust in template:
 * pipeline/stages(name:source)/actions/configuration/RepositoryName (immunoscape-packagename-package)
 * pipeline/stages(name:build)/actions/configuration/ProjectName (packagename-package-prod/dev)
 * pipeline/stages(name:store)/actions/configuration/ObjectKey (packagename-package/packagename-prod/dev.zip)  
-`aws codepipeline create-pipeline --cli-input-json code_pipeline_package_template.json`  
+`aws codepipeline create-pipeline --cli-input-json file://code_pipeline_package_template.json`  
 
 
 ### Add CodePipeline Docker
@@ -214,7 +214,7 @@ Fields to adjust in template:
 * pipeline/name (packagename-docker-prod/dev)
 * pipeline/stages/name:source)/actions/configuration/S3ObjectKey (packagename-package/packagename-prod/dev.zip)
 * pipeline/stages(name:build)/actions/configuration/ProjectName (packagename-docker-prod/dev)  
-`aws codepipeline create-pipeline --cli-input-json code_pipeline_docker_template.json`
+`aws codepipeline create-pipeline --cli-input-json file://code_pipeline_docker_template.json`
 
 
 ### Put Events Rule Package (git)
