@@ -15,9 +15,13 @@ whether a new image of the container in question is available at the repository 
 it.
 
 ## Some more details
-[Watchtower]: https://containrrr.dev/watchtower/ is described on the github page as 'A process for automating Docker container base image updates'. Generally, watchtower will check and update all running or exited containers, not plain images. Watchtower comes as
+[Watchtower][watchtower-github] is described on the github page as 'A process for automating Docker container base image updates'. Generally, watchtower will check and update all running or exited containers, not plain images. Watchtower comes as
 docker image itself and works without much config when using public repositories. However, for using AWS, some
 more configuration and setup is needed. This blogpost with sum up what's needed for that. 
+
+
+
+[watchtower-github]: https://containrrr.dev/watchtower/ 
 
 
 
