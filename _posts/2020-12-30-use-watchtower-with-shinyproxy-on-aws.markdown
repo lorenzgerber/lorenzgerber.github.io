@@ -19,8 +19,18 @@ it.
 docker image itself and works without much config when using public repositories. However, for using AWS, some
 more configuration and setup is needed. This blogpost with sum up what's needed for that. 
 
+## Howto
+1. Generate Volume that contains credential helper
+- Create Dockerfile to build ECR credential helper
+- build container
+- create Docker Volume for helper
+- run docker container to place ECR credential helper in Docker Volume
+2. Create Json configuration file for Docker
+3. Create docker-compose file
 
+Code snippets for all steps are avaialable in the wathtower doc section about private registries[private-registries].
 
+[priavate-registries]: https://containrrr.dev/watchtower/private-registries/
 [watchtower-github]: https://containrrr.dev/watchtower/ 
 
 
