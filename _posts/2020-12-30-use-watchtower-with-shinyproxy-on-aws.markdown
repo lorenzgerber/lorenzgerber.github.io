@@ -22,7 +22,7 @@ more configuration and setup is needed. This blogpost with sum up what's needed 
 ## Howto
 1. Generate Volume that contains credential helper
 - Create Dockerfile to build ECR credential helper
-```shell
+```
 FROM golang:latest
 
 ENV CGO_ENABLED 0
@@ -45,7 +45,7 @@ WORKDIR /go/bin/
 - run docker container to place ECR credential helper in Docker Volume
 `docker run -d --rm --name aws-cred-helper --volume helper:/go/bin aws-ecr-dock-cred-helper`
 2. Create Json configuration file for Docker (as `~/.docker/config.json`)
-```json
+```
 {
     "credsStore" : "ecr-login",
     "HttpHeaders" : {
@@ -60,7 +60,7 @@ WORKDIR /go/bin/
 }
 ```
 3. Create docker-compose file
-```shell
+```
 version: "3.4"
 services:
   # Check for new images and restart things if a new image exists
