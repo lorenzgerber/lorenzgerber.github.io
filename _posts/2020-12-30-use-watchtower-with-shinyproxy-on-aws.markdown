@@ -93,9 +93,9 @@ more configuration and setup is needed. This blogpost with sum up what's needed 
 `docker-compose up -d`
 
 
-Code snippets are taken from the watchtower doc section about private registries[private-registries].
+Code snippets are taken from the watchtower doc section about [private registries][private-registries].
 
-[priavate-registries]: https://containrrr.dev/watchtower/private-registries/
+[private-registries]: https://containrrr.dev/watchtower/private-registries/
 [watchtower-github]: https://containrrr.dev/watchtower/ 
 
 
