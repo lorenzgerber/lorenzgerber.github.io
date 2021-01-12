@@ -23,22 +23,22 @@ more configuration and setup is needed. This blogpost with sum up what's needed 
 1. Generate Volume that contains credential helper
 - Create Dockerfile to build ECR credential helper
 
-```
-FROM golang:latest
+    ```
+    FROM golang:latest
 
-ENV CGO_ENABLED 0
-ENV REPO github.com/awslabs/amazon-ecr-credential-helper/ecr-login/cli/docker-credential-ecr-login
+    ENV CGO_ENABLED 0
+    ENV REPO github.com/awslabs/amazon-ecr-credential-helper/ecr-login/cli/docker-credential-ecr-login
 
-RUN go get -u $REPO
+    RUN go get -u $REPO
 
-RUN rm /go/bin/docker-credential-ecr-login
+    RUN rm /go/bin/docker-credential-ecr-login
 
-RUN go build \
-  -o /go/bin/docker-credential-ecr-login \
-  /go/src/$REPO
+    RUN go build \
+    -o /go/bin/docker-credential-ecr-login \
+    /go/src/$REPO
 
-WORKDIR /go/bin/
-```
+    WORKDIR /go/bin/
+    ```
 
 - build container
 `docker build -t aws-ecr-dock-cred-helper .`
@@ -46,47 +46,48 @@ WORKDIR /go/bin/
 `docker volume create helper`
 - run docker container to place ECR credential helper in Docker Volume
 `docker run -d --rm --name aws-cred-helper --volume helper:/go/bin aws-ecr-dock-cred-helper`
+
 2. Create Json configuration file for Docker (as `~/.docker/config.json`)
 
-```
-{
-    "credsStore" : "ecr-login",
-    "HttpHeaders" : {
-      "User-Agent" : "Docker-Client/19.03.1 (XXXXXX)"
-    },
-    "auths" : {
-      "<AWS_ACCOUNT_ID>.dkr.ecr.ap-southeast-1.amazonaws.com" : {}
-    },
-    "credHelpers": {
-      "<AWS_ACCOUNT_ID>.dkr.ecr.ap-southeast-1.amazonaws.com" : "ecr-login"
+    ```
+    {
+        "credsStore" : "ecr-login",
+        "HttpHeaders" : {
+        "User-Agent" : "Docker-Client/19.03.1 (XXXXXX)"
+        },
+        "auths" : {
+        "<AWS_ACCOUNT_ID>.dkr.ecr.ap-southeast-1.amazonaws.com" : {}
+        },
+        "credHelpers": {
+        "<AWS_ACCOUNT_ID>.dkr.ecr.ap-southeast-1.amazonaws.com" : "ecr-login"
+        }
     }
-}
-```
+    ```
 
 3. Create docker-compose file
 
-```
-version: "3.4"
-services:
-  # Check for new images and restart things if a new image exists
-  # for any of our containers.
-  watchtower:
-    image: containrrr/watchtower:latest
+    ```
+    version: "3.4"
+    services:
+    # Check for new images and restart things if a new image exists
+    # for any of our containers.
+    watchtower:
+        image: containrrr/watchtower:latest
+        volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+        - /home/ubuntu/.docker/config.json:/config.json
+        - helper:/go/bin
+        environment:
+        - HOME=/
+        - PATH=$PATH:/go/bin
+        - AWS_REGION=ap-southeast-1
+        - AWS_ACCESS_KEY_ID=key_id
+        - AWS_SECRET_ACCESS_KEY=secret_access_key
+        command: --interval 30 --include-stopped
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /home/ubuntu/.docker/config.json:/config.json
-      - helper:/go/bin
-    environment:
-      - HOME=/
-      - PATH=$PATH:/go/bin
-      - AWS_REGION=ap-southeast-1
-      - AWS_ACCESS_KEY_ID=key_id
-      - AWS_SECRET_ACCESS_KEY=secret_access_key
-    command: --interval 30 --include-stopped
-volumes:
-  helper: 
-    external: true
-```
+    helper: 
+        external: true
+    ```
 
 4. Start service
 `docker-compose up -d`
