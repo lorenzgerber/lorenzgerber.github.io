@@ -14,9 +14,13 @@ I just can't remember those darn vim shortcuts...
 * `gg` - jump to start of file
 * `Shift G` - jump to end of file 
 
-### line nave
+### line nav
 * `$` - jump to end of line
 * `0` - jump to start of line
+
+### editing
+* `:[range]s/{pattern}/{string}/[flags] [count]` - Search and Replace, general form, default range is the current line. Userful range `%` for whole file,  useful flags `g` (global) for all occurences, `c` (confirm) to ask the user for each replace
+* `:%s/foo/bar/gc` - Search and Replace in the whole document `foo` with `bar` but ask everytime the user
 
 ### file ops
 * `:edit` or `:e` plus file name - open file for editing
