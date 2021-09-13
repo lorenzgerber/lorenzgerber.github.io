@@ -59,8 +59,10 @@ more configuration and setup is needed. This blogpost with sum up what's needed 
         }
     }
     ```
+3. Install ecr credential helper also in host machine
+`apt install amazon-ecr-credential-helper`
 
-3. Create docker-compose file  
+4. Create docker-compose file  
 
     ```
     version: "3.4"
@@ -85,7 +87,7 @@ volumes:
         external: true
     ```
 
-4. Start service  
+5. Start service  
 `docker-compose up -d`
 
 
