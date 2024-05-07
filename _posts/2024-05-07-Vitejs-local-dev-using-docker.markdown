@@ -30,4 +30,4 @@ preview: {
 
 Tadaaa... that's all. Then run:
 
-``docker run --rm -v `pwd`:/code -w /code -p 4173:4173 node:20 npm run dev`` 
+``docker run --rm -v `pwd`:/code -w /code -p 8000:8000 node:20 npm run dev`` 
