@@ -15,6 +15,11 @@ find . -type d -depth 1 -print -exec git --git-dir={}/.git --work-tree=$PWD/{} f
 find . -type d -depth 1 -print -exec git --git-dir={}/.git --work-tree=$PWD/{} --no-pager diff master \;
 find . -type d -depth 1 -ok git --git-dir={}/.git --work-tree=$PWD/{} pull origin master \;
 ```
+### Note, Run git commands on sub-dirs, Linux
+Apparently, above doesn't work on vanilla ubuntu bash, hence:
+```
+find . -depth -maxdepth 1 -type d -print -exec git --git-dir={}/.git --work-tree=$PWD/{} status \;
+```
 
 ## Change file extensions of multiple files in a directory
 Here for example, change .txt files to .fcs files
